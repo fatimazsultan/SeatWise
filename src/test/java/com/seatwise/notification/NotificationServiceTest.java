@@ -64,7 +64,7 @@ class NotificationServiceTest {
     void everyEventTypeHasAMessageAndAllIsAggregated() {
         InMemoryHarness app = InMemoryHarness.create();
         Booking held = app.checkout.hold(app.publishedConcert().id(), new Customer("Zoya", "zoya@example.com"),
-                List.of(Fixtures.seat("Std", "C", 1)));
+                List.of(Fixtures.seat("Std", "A", 3)));
         int before = app.notifications.all().size();
         for (BookingEventType type : BookingEventType.values()) {
             app.notifications.onBookingEvent(BookingEvent.of(type, held, app.clock.instant()));
